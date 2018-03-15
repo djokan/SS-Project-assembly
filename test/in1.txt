@@ -1,0 +1,58 @@
+ORG 0x00
+.data.1
+DD 0x1000
+
+ORG 0x10
+.data.2
+DD 0x2000
+
+ORG 0x14
+.data.3
+DD 0x3000
+
+
+ORG 0x1000
+.data.4
+DD 50 DUP 50
+
+
+ORG 0x2000
+.text.3
+load R3,R1
+load R1,#66
+storeb R1,0x80
+load R1,R3
+ret
+
+ORG 0x3000
+.text.1
+m:
+load R1, 0x81
+load R2, #1
+add R1,R1,R2
+storeb R1,0x80
+load R1, #1
+ret
+
+.data
+DD 4
+DD 54
+DD 49
+DD 56
+DD 48
+
+.text
+START:
+
+load R1, #0
+back:
+jz R1, back
+load R1, #0
+int R1
+
+.end
+
+
+
+
+

@@ -1,0 +1,2 @@
+./bin/project test/in.txt test/out.txt
+
